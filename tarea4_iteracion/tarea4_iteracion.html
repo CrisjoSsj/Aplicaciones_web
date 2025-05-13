@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>iteraciones</title>
+</head>
+<body>
+    <script type="text/javascript">
+    var Numero1 = parseFloat(prompt ("introduce un numero 1"));
+    var Numero2 = parseFloat(prompt ("introduce un numero 2"));
+    var countdown = 1;
+    while (countdown<=5)
+    { 
+        if (countdown ==1)
+        { var resultado=Numero1+Numero2
+            alert ("El resultado de la suma es: "+ resultado)
+        }
+        else if(countdown==2)
+        { var resultado=Numero1-Numero2 
+            alert ("El resultado de la resta es: "+ resultado)
+        }
+        else if(countdown==3)
+        { var resultado=Numero1*Numero2
+            alert ("El resultado de la multiplicacion es: "+ resultado)
+        }
+        else if(countdown==4)
+        { var resultado=Numero1/Numero2
+            alert ("El resultado de la division es: "+ resultado)
+        }
+        else if(countdown==5)
+        { var resultado=Numero1%Numero2
+            alert ("El resultado del modulo es: "+ resultado)
+        }
+        countdown++;}
+    </script>
+</body>
+</html>

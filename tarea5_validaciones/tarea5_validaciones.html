@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Datos del cliente</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <h1>Datos del cliente</h1>
+
+    <form class="formulario" onsubmit="return validar()">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" id="nombre" >
+
+        <label>Apellido:</label>
+        <input type="text" name="apellido" id="apellido">
+
+        <label>Fecha de nacimiento:</label>
+        <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" >
+
+        <label>Cédula:</label>
+        <input type="text" name="cedula" id="cedula" >
+
+        <label>Correo:</label>
+        <input type="email" name="correo" id="correo" >
+
+        <label>Teléfono:</label>
+        <input type="tel" name="telefono" id="telefono" >
+
+        <label>Dirección:</label>
+        <input type="text" name="direccion" id="direccion" >
+
+        <label>Estado civil:</label>
+        <select name="estado_civil" id="estado_civil" >
+            <option value="">Seleccione una respuesta</option>
+            <option value="soltero">Soltero</option>
+            <option value="casado">Casado</option>
+            <option value="divorciado">Divorciado</option>
+        </select>
+        <button class="boton" type="submit">Aceptar</button>
+    </form>
+    <script type="text/javascript">
+        function validar(){ 
+        nombre = document.getElementById("nombre").value.trim();
+        apellido = document.getElementById("apellido").value.trim();
+        fecha_nacimiento = document.getElementById("fecha_nacimiento").value.trim();
+        cedula = document.getElementById("cedula").value.trim();
+        correo = document.getElementById("correo").value.trim();
+        telefono = document.getElementById("telefono").value.trim();
+        direccion = document.getElementById("direccion").value.trim();
+        estado_civil = document.getElementById("estado_civil").value;
+
+        if (nombre === ""){
+                alert ("El campo Nombre es obligatorio");
+                return false;}
+
+        if (apellido === ""){
+                alert ("El campo Apellido es obligatorio");
+                return false;}
+        
+        if (fecha_nacimiento === "") {
+            alert("El campo fecha nacimiento es obligatorio.");
+            return false;
+        } else {
+            const añoActual = new Date().getFullYear();
+            const añoNac = new Date(fecha_nacimiento).getFullYear();
+            if (añoActual - añoNac < 18) {
+                alert("Debe ser mayor de 18 años.");
+                return false;
+            }
+        }
+
+        if (cedula.length !== 10 || isNaN(cedula)) {
+            alert("La cedula debe tener 10 dígitos numéricos.");
+            return false;}
+
+        if (direccion === "") {
+            alert("El campo direccion es obligatorio.");
+            return false;}
+
+        if (correo === "" || !correo.includes("@") || !correo.includes(".")) {
+            alert("Correo inválido.");
+            return false;}
+
+        if (telefono.length !== 10 || isNaN(telefono)) {
+            alert("El teléfono debe tener 10 dígitos numéricos.");
+            return false;}
+        
+        if (estado_civil === "") {
+            alert("El campo estado civil es obligatorio.");
+            return false;}
+
+        return true;
+        }
+    </script>
+
+</body>
+</html>

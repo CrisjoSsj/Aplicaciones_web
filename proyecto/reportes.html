@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reportes - ULEAM</title>
+    <link rel="stylesheet" href="css/reportes.css" />
+</head>
+
+<body>
+    <header>
+        <img src="img/logo_uleam.png" alt="Logo ULEAM" />
+        <nav>
+            <a href="home.html">Inicio</a>
+            <a href="registro_vehicular.html">Registrar vehículo</a>
+            <a href="reportes.html" class="active">Reportes</a>
+            <a href="consulta_registro.html">Consultar registros</a>
+            <a href="#" id="cerrarSesion">Cerrar sesión</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Reportes</h2>
+
+        <form class="filtros">
+            <div class="fecha-rango">
+                <label for="fecha_desde">Desde:</label>
+                <input type="date" id="fecha_desde" name="fecha_desde" />
+
+                <label for="fecha_hasta">Hasta:</label>
+                <input type="date" id="fecha_hasta" name="fecha_hasta" />
+            </div>
+
+            <label for="tipo_vehiculo">Tipo de Vehículo:</label>
+            <select id="tipo_vehiculo" name="tipo_vehiculo">
+                <option value="todos" selected>Todos</option>
+                <option value="auto">Auto</option>
+                <option value="moto">Moto</option>
+                <option value="camion">Camión</option>
+                <option value="otros">Otros</option>
+            </select>
+
+            <label for="tipo_usuario">Tipo de Usuario:</label>
+            <select id="tipo_usuario" name="tipo_usuario">
+                <option value="todos" selected>Todos</option>
+                <option value="estudiante">Estudiante</option>
+                <option value="docente">Docente</option>
+                <option value="administrativo">Administrativo</option>
+                <option value="visitante">Visitante</option>
+            </select>
+
+            <div class="botones">
+                <button type="submit" class="generar">Generar Reporte</button>
+                <button type="button" class="exportar">Exportar PDF</button>
+            </div>
+        </form>
+
+        <section class="resultado-reportes">
+            <!-- Aquí va la tabla o gráfico de resultados -->
+            <p style="text-align:center; color:#666;">Aquí aparecerán los resultados del reporte.</p>
+        </section>
+    </main>
+    <script src="js/reportes.js"></script>
+    <script src="js/cerrar_sesion.js"></script>
+
+</body>
+</html>

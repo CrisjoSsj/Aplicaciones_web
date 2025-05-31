@@ -1,49 +1,60 @@
-// js/registro_vehicular.js
-
-document.addEventListener('DOMContentLoaded', () => {
-    const formulario = document.querySelector('.form-registro');
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("formRegistroVehiculo");
   
-    formulario.addEventListener('submit', function (e) {
+    form.addEventListener("submit", function (e) {
       e.preventDefault();
   
-      // Obtener valores del formulario
-      const nombre = document.getElementById('nombre').value.trim();
-      const cedula = document.getElementById('cedula').value.trim();
-      const tipo_usuario = document.getElementById('tipo_usuario').value;
-      const placa = document.getElementById('placa').value.trim().toUpperCase();
-      const tipo_vehiculo = document.getElementById('tipo_vehiculo').value;
-      const fecha_hora = document.getElementById('fecha_hora').value;
-      const observaciones = document.getElementById('observaciones').value.trim();
-  
-      // Validaciones adicionales (opcionales)
-      if (!nombre || !cedula || !tipo_usuario || !placa || !tipo_vehiculo || !fecha_hora) {
-        alert('Por favor, complete todos los campos obligatorios.');
-        return;
-      }
-  
-      if (!/^\d{10}$/.test(cedula)) {
-        alert('La cédula debe tener 10 dígitos.');
-        return;
-      }
-  
-      // Crear el registro
-      const registro = {
-        nombre,
-        cedula,
-        tipo_usuario,
-        placa,
-        tipo_vehiculo,
-        fecha: fecha_hora,
-        observaciones
+      const vehiculo = {
+        nombre: form.nombre.value.trim(),
+        cedula: form.cedula.value.trim(),
+        placa: form.placa.value.trim().toUpperCase(),
+        marca: form.marca.value.trim(),
+        color: form.color.value.trim(),
+        tipoUsuario: form.tipoUsuario.value,
+        tipoVehiculo: form.tipoVehiculo.value
       };
   
-      // Guardar en localStorage
-      const registros = JSON.parse(localStorage.getItem('registros')) || [];
-      registros.push(registro);
-      localStorage.setItem('registros', JSON.stringify(registros));
+      if (!validarCedula(vehiculo.cedula)) {
+        alert("Cédula inválida.");
+        return;
+      }
   
-      alert('Ingreso registrado exitosamente.');
-      formulario.reset();
+      if (vehiculo.placa.length < 6) {
+        alert("La placa debe tener al menos 6 caracteres.");
+        return;
+      }
+  
+      const vehiculos = JSON.parse(localStorage.getItem("vehiculos")) || [];
+  
+      if (vehiculos.find(v => v.placa === vehiculo.placa)) {
+        alert("Ya existe un vehículo registrado con esa placa.");
+        return;
+      }
+  
+      vehiculos.push(vehiculo);
+      localStorage.setItem("vehiculos", JSON.stringify(vehiculos));
+      alert("Vehículo registrado correctamente.");
+      form.reset();
     });
+  
+    function validarCedula(cedula) {
+      if (!/^\d{10}$/.test(cedula)) return false;
+  
+      const digitos = cedula.split("").map(Number);
+      const provincia = parseInt(cedula.substring(0, 2));
+      if (provincia < 1 || provincia > 24) return false;
+  
+      const coeficientes = [2, 1, 2, 1, 2, 1, 2, 1, 2];
+      let suma = 0;
+  
+      for (let i = 0; i < 9; i++) {
+        let valor = digitos[i] * coeficientes[i];
+        if (valor > 9) valor -= 9;
+        suma += valor;
+      }
+  
+      const digitoVerificador = (10 - (suma % 10)) % 10;
+      return digitoVerificador === digitos[9];
+    }
   });
   

@@ -1,16 +1,10 @@
-// js/cerrar_sesion.js
-
-function cerrarSesion() {
-    localStorage.removeItem('usuario');
-    window.location.href = 'inicio_sesion.html';
-  }
-  
-  document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const btnCerrar = document.getElementById('cerrarSesion');
-    if (btnCerrar) {
-      btnCerrar.addEventListener('click', function (e) {
+    if(btnCerrar) {
+      btnCerrar.addEventListener('click', (e) => {
         e.preventDefault();
-        cerrarSesion();
+        localStorage.removeItem('usuario');
+        window.location.href = 'login.html';
       });
     }
   });

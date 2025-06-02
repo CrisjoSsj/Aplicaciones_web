@@ -1,65 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/registro_vehicular.css" />
-    <title>Registro de Vehículo - ULEAM</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registrar Vehículo</title>
+  <link rel="stylesheet" href="assets/css/registro.css" />
 </head>
-
 <body>
     <header>
-        <img src="img/logo_uleam.png" alt="Logo ULEAM" />
-
+        <img src="assets/img/logo_uleam.png" alt="Logo ULEAM" class="logo" />
         <nav>
-            <a href="home.html">Inicio</a>
-            <a href="registro_vehicular.html" class="active">Registrar vehículo</a>
-            <a href="reportes.html">Reportes</a>
-            <a href="consulta_registro.html">Consultar Registros</a>
-            <a href="#" id="cerrarSesion">Cerrar sesión</a>
+          <a href="index.html">Inicio</a>
+          <a href="registro_vehicular.html">Registrar Vehículo</a>
+          <a href="registro_entrada_salida.html">Registrar Entrada/Salida</a>
+          <a href="historial.html">Historial Registros</a>
+          <a href="reportes.html">Reportes</a>
+          <a href="#" id="cerrarSesion">Cerrar Sesión</a>
         </nav>
-    </header>
+      </header>
+  <main>
+    <h2>Registro de Vehículo Nuevo</h2>
+    <form id="formRegistroVehiculo">
+      <label for="nombre">Nombre del propietario:</label>
+      <input type="text" id="nombre" name="nombre"  />
+      <label for="cedula">Cédula:</label>
+      <input type="text" id="cedula" name="cedula"  />
+      <label for="placa">Placa del vehículo:</label>
+      <input type="text" id="placa" name="placa"  />
+      <label for="marca">Marca:</label>
+      <input type="text" id="marca" name="marca"  />
+      <label for="color">Color:</label>
+      <input type="text" id="color" name="color"  />
+      <label for="tipoUsuario">Tipo de Usuario:</label>
+      <select id="tipoUsuario" name="tipoUsuario" >
+        <option value="">Seleccione</option>
+        <option value="Docente">Docente</option>
+        <option value="Administrativo">Administración</option>
+        <option value="Estudiante">Estudiante</option>
+        <option value="otro">Otro</option>
+      </select>
+      <label for="tipoVehiculo">Tipo de Vehículo:</label>
+      <select id="tipoVehiculo" name="tipoVehiculo" >
+        <option value="">Seleccione</option>
+        <option value="Carro">Carro</option>
+        <option value="Moto">Moto</option>
+        <option value="Camion">Camion</option>
+        <option value="Otro">Otro</option>
+      </select>
+      <button type="submit">Registrar Vehículo</button>
+    </form>
+  </main>
+  <script src="assets/js/registro_vehicular.js"></script>
+  <script src="assets/js/auth_check.js"></script>
 
-    <main>
-        <h2>Registro de Ingreso Vehicular</h2>
-
-        <form class="form-registro" action="#" method="post">
-            <label for="nombre">Nombre del propietario</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Ingrese nombre completo" required />
-
-            <label for="cedula">Cédula</label>
-            <input type="number" id="cedula" name="cedula" placeholder="Ingrese número de cédula" required />
-
-            <label for="tipo_usuario">Tipo de usuario</label>
-            <select id="tipo_usuario" name="tipo_usuario" required>
-                <option value="" disabled selected>Seleccione tipo de usuario</option>
-                <option value="estudiante">Estudiante</option>
-                <option value="docente">Docente</option>
-                <option value="administrativo">Administrativo</option>
-                <option value="visitante">Visitante</option>
-            </select>
-
-            <label for="placa">Placa del vehículo</label>
-            <input type="text" id="placa" name="placa" placeholder="Ej: ABC-1234" required maxlength="10" />
-
-            <label for="tipo_vehiculo">Tipo de vehículo</label>
-            <select id="tipo_vehiculo" name="tipo_vehiculo" required>
-                <option value="" disabled selected>Seleccione tipo de vehículo</option>
-                <option value="carro">Carro</option>
-                <option value="moto">Moto</option>
-                <option value="otro">Otro</option>
-            </select>
-
-            <label for="fecha_hora">Fecha y hora de ingreso</label>
-            <input type="datetime-local" id="fecha_hora" name="fecha_hora" required />
-
-            <label for="observaciones">Observaciones</label>
-            <textarea id="observaciones" name="observaciones" placeholder="Opcional..."></textarea>
-
-            <button type="submit">Registrar Ingreso</button>
-        </form>
-    </main>
-    <script src="js/cerrar_sesion.js"></script>
-    <script src="js/registro_vehicular.js"></script>
 </body>
 </html>

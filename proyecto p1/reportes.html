@@ -1,67 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Reportes - ULEAM</title>
-    <link rel="stylesheet" href="css/reportes.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reportes Vehiculares</title>
+  <link rel="stylesheet" href="assets/css/reportes.css" />
 </head>
-
 <body>
-    <header>
-        <img src="img/logo_uleam.png" alt="Logo ULEAM" />
-        <nav>
-            <a href="home.html">Inicio</a>
-            <a href="registro_vehicular.html">Registrar vehículo</a>
-            <a href="reportes.html" class="active">Reportes</a>
-            <a href="consulta_registro.html">Consultar registros</a>
-            <a href="#" id="cerrarSesion">Cerrar sesión</a>
-        </nav>
-    </header>
-
-    <main>
-        <h2>Reportes</h2>
-
-        <form class="filtros">
-            <div class="fecha-rango">
-                <label for="fecha_desde">Desde:</label>
-                <input type="date" id="fecha_desde" name="fecha_desde" />
-
-                <label for="fecha_hasta">Hasta:</label>
-                <input type="date" id="fecha_hasta" name="fecha_hasta" />
-            </div>
-
-            <label for="tipo_vehiculo">Tipo de Vehículo:</label>
-            <select id="tipo_vehiculo" name="tipo_vehiculo">
-                <option value="todos" selected>Todos</option>
-                <option value="auto">Auto</option>
-                <option value="moto">Moto</option>
-                <option value="camion">Camión</option>
-                <option value="otros">Otros</option>
-            </select>
-
-            <label for="tipo_usuario">Tipo de Usuario:</label>
-            <select id="tipo_usuario" name="tipo_usuario">
-                <option value="todos" selected>Todos</option>
-                <option value="estudiante">Estudiante</option>
-                <option value="docente">Docente</option>
-                <option value="administrativo">Administrativo</option>
-                <option value="visitante">Visitante</option>
-            </select>
-
-            <div class="botones">
-                <button type="submit" class="generar">Generar Reporte</button>
-                <button type="button" class="exportar">Exportar PDF</button>
-            </div>
-        </form>
-
-        <section class="resultado-reportes">
-            <!-- Aquí va la tabla o gráfico de resultados -->
-            <p style="text-align:center; color:#666;">Aquí aparecerán los resultados del reporte.</p>
-        </section>
-    </main>
-    <script src="js/reportes.js"></script>
-    <script src="js/cerrar_sesion.js"></script>
+  <header>
+    <img src="assets/img/logo_uleam.png" alt="Logo ULEAM" class="logo" />
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="registro_vehicular.html">Registrar Vehículo</a>
+      <a href="registro_entrada_salida.html">Registrar Entrada/Salida</a>
+      <a href="historial.html">Historial Registros</a>
+      <a href="reportes.html" class="activo">Reportes</a>
+      <a href="#" id="cerrarSesion">Cerrar Sesión</a>
+    </nav>
+  </header>
+  <main class="container">
+    <h2>Reportes Vehiculares</h2>
+    <label>Desde: <input type="date" id="fechaInicio"></label>
+    <label>Hasta: <input type="date" id="fechaFin"></label>
+    <label>Estado:
+      <select id="filtroEstado">
+        <option value="todos">Todos</option>
+        <option value="dentro">Aún Dentro</option>
+        <option value="fuera">Ya Salieron</option>
+      </select>
+    </label>
+    <form id="formReportes">
+      <label for="filtroTipoUsuario">Filtrar por Tipo de Usuario:</label>
+      <select id="filtroTipoUsuario">
+        <option value="todos" selected>Todos</option>
+        <option value="Estudiante">Estudiante</option>
+        <option value="Docente">Docente</option>
+        <option value="Administrativo">Administrativo</option>
+        <option value="Otro">Otro</option>
+      </select>
+      <label for="filtroTipoVehiculo">Filtrar por Tipo de Vehículo:</label>
+      <select id="filtroTipoVehiculo">
+        <option value="todos" selected>Todos</option>
+        <option value="Carro">Carro</option>
+        <option value="Moto">Moto</option>
+        <option value="Camion">Camión</option>
+        <option value="Otros">Otro</option>
+      </select>
+      <button type="button" id="btnExportarExcel">Exportar Excel</button>
+    </form>
+    <section id="resultadoReporte" style="margin-top:2rem;">
+    </section>
+  </main>
+  <script src="assets/js/reportes.js"></script>
+  <script src="assets/js/registro_vehicular.js"></script>
 
 </body>
 </html>

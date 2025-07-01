@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reportes Vehiculares</title>
+  <link rel="stylesheet" href="assets/css/reportes.css" />
+</head>
+<body>
+  <header>
+    <img src="assets/img/logo_uleam.png" alt="Logo ULEAM" class="logo" />
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="registro_vehicular.html">Registrar Vehículo</a>
+      <a href="registro_entrada_salida.html">Registrar Entrada/Salida</a>
+      <a href="historial.html">Historial Registros</a>
+      <a href="reportes.html" class="activo">Reportes</a>
+      <a href="#" id="cerrarSesion">Cerrar Sesión</a>
+    </nav>
+  </header>
+  <main class="container">
+    <h2>Reportes Vehiculares</h2>
+    <label>Desde: <input type="date" id="fechaInicio"></label>
+    <label>Hasta: <input type="date" id="fechaFin"></label>
+    <label>Estado:
+      <select id="filtroEstado">
+        <option value="todos">Todos</option>
+        <option value="dentro">Aún Dentro</option>
+        <option value="fuera">Ya Salieron</option>
+      </select>
+    </label>
+    <form id="formReportes">
+      <label for="filtroTipoUsuario">Filtrar por Tipo de Usuario:</label>
+      <select id="filtroTipoUsuario">
+        <option value="todos" selected>Todos</option>
+        <option value="Estudiante">Estudiante</option>
+        <option value="Docente">Docente</option>
+        <option value="Administrativo">Administrativo</option>
+        <option value="Otro">Otro</option>
+      </select>
+      <label for="filtroTipoVehiculo">Filtrar por Tipo de Vehículo:</label>
+      <select id="filtroTipoVehiculo">
+        <option value="todos" selected>Todos</option>
+        <option value="Carro">Carro</option>
+        <option value="Moto">Moto</option>
+        <option value="Camion">Camión</option>
+        <option value="Otros">Otro</option>
+      </select>
+      <button type="button" id="btnExportarExcel">Exportar Excel</button>
+    </form>
+    <section id="resultadoReporte" style="margin-top:2rem;">
+    </section>
+  </main>
+  <script src="assets/js/reportes.js"></script>
+  <script src="assets/js/registro_vehicular.js"></script>
+
+</body>
+</html>

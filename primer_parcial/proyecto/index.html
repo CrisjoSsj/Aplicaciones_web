@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header>
+    <img src="assets/img/logo_uleam.png" alt="Logo ULEAM" class="logo" />
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="registro_vehicular.html">Registrar Vehículo</a>
+      <a href="registro_entrada_salida.html">Registrar Entrada/Salida</a>
+      <a href="historial.html">Historial Registros</a>
+      <a href="reportes.html">Reportes</a>
+      <a href="#" id="cerrarSesion">Cerrar Sesión</a>
+    </nav>
+  </header>
+
+  <main>    
+    <div class="bienvenida">Bienvenido Usuario: <span id="usuarioNombre"></span></div>   
+    <section class="dashboard-cards">
+      <div class="card">
+        <img src="assets/img/car_registrado.png" alt="Registrados Hoy">
+        <h3>Vehículos Registrados</h3>
+        <p id="cantidadVehiculos">0</p>
+      </div>
+      <div class="card">
+        <img src="assets/img/car_lock.png" alt="Vehículos Ingresados">
+        <h3>Vehículos Dentro</h3>
+        <p id="cantidadDentro">0</p>
+      </div>
+      <div class="card">
+        <img src="assets/img/car.png" alt="Alertas">
+        <h3>Vehículos Fuera</h3>
+        <p id="cantidadFuera">0</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/auth_check.js"></script>
+  <script src="assets/js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registrar Entrada/Salida</title>
+  <link rel="stylesheet" href="assets/css/entrada_salida.css" />
+</head>
+<body>
+  <header>
+    <img src="assets/img/logo_uleam.png" alt="Logo ULEAM" class="logo" />
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="registro_vehicular.html">Registrar Vehículo</a>
+      <a href="registro_entrada_salida.html" class="activo">Registrar Entrada/Salida</a>
+      <a href="historial.html">Historial Registros</a>
+      <a href="reportes.html">Reportes</a>
+      <a href="#" id="cerrarSesion">Cerrar Sesión</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Registrar Entrada o Salida de Vehículo</h2>
+
+    <form id="buscarVehiculoForm">
+        <label for="placa">Placa del vehículo:</label>
+        <input type="text" id="placa" placeholder="Ingrese la placa" required />
+        <button type="button" id="buscarBtn">Buscar Vehículo</button>
+    </form>
+    
+
+    
+    <div id="infoVehiculo" style="display:none; margin-top: 1rem;">
+      <p><strong>Nombre:</strong> <span id="nombreVehiculo"></span></p>
+      <p><strong>Placa:</strong> <span id="placaVehiculo"></span></p>
+    
+      <label for="tipoRegistro">Tipo de Registro:</label>
+      <select id="tipoRegistro" required>
+        <option value="">--Seleccione--</option>
+        <option value="entrada">Entrada</option>
+        <option value="salida">Salida</option>
+      </select>
+    
+      <button type="submit">Registrar</button>
+    </div>
+    
+  </main>
+
+  <script src="assets/js/auth_check.js"></script>
+  <script src="assets/js/registro_entrada_salida.js"></script>
+  <script>
+    document.getElementById('cerrarSesion').addEventListener('click', () => {
+      localStorage.removeItem('usuario');
+      window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>

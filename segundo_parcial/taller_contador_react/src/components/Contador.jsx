@@ -12,12 +12,19 @@ function Contador({ titulo, inicio }) {
     setContador(contador - 1);
   };
 
+  const resetear = () => {
+    setContador(inicio);
+  };
+
+
   return (
     <div style={{ marginBottom: '20px' }}>
       <h2>{titulo}</h2>
       <p>Valor actual: {contador}</p>
       <button onClick={decrementar}>-</button>
       <button onClick={incrementar}>+</button>
+      <button onClick={resetear}>reset</button>
+
     </div>
   );
 }
@@ -32,12 +39,17 @@ function Contador2({ titulo, inicio }) {
     setContador(contador - 2);
   };
 
+  const resetear = () => {
+    setContador(inicio);
+  };
+
   return (
     <div style={{ marginBottom: '20px' }}>
       <h2>{titulo}</h2>
       <p>Valor actual: {contador}</p>
       <button onClick={decrementar}>-</button>
       <button onClick={incrementar}>+</button>
+      <button onClick={resetear}>reset</button>
     </div>
   );
 }
@@ -52,12 +64,18 @@ function Contador10({ titulo, inicio }) {
     setContador(contador - 10);
   };
 
+  const resetear = () => {
+    setContador(inicio);
+  };
+
   return (
     <div style={{ marginBottom: '20px' }}>
       <h2>{titulo}</h2>
       <p>Valor actual: {contador}</p>
       <button onClick={decrementar}>-</button>
       <button onClick={incrementar}>+</button>
+      <button onClick={resetear}>reset</button>
+
     </div>
   );
 }

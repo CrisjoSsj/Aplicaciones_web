@@ -1,0 +1,251 @@
+/* Estilos para la página de login */
+
+/* Layout principal del login */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, var(--background-color) 0%, #e8eaed 100%);
+}
+
+/* Encabezado del login */
+header {
+  background: var(--secondary-color);
+  padding: 1rem 2rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header img {
+  height: 50px;
+  transition: filter 0.3s ease;
+}
+
+header img:hover {
+  filter: brightness(1.1);
+}
+
+/* Contenido principal del login */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  min-height: calc(100vh - 80px);
+}
+
+/* Título principal */
+.titulo {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Caja de login */
+.box_login {
+  background: var(--secondary-color);
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow-hover);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.box_login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Logo dentro del formulario */
+.box_login .logo {
+  height: 100px;
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.box_login:hover .logo {
+  transform: scale(1.05);
+}
+
+/* Formulario */
+.box_login form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Etiquetas */
+.box_login label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: white;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Inputs */
+.box_login input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: var(--surface-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.box_login input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(236, 50, 55, 0.1);
+  outline: none;
+}
+
+.box_login input:hover {
+  border-color: var(--primary-color);
+}
+
+/* Botón de login */
+.box_login button {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  width: 100%;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.box_login button:hover {
+  background: #d42a2f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(236, 50, 55, 0.3);
+}
+
+.box_login button:active {
+  transform: translateY(0);
+}
+
+/* Animaciones */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.box_login {
+  animation: slideInUp 0.6s ease-out;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  main {
+    padding: 1rem;
+  }
+  
+  .titulo {
+    font-size: 2rem;
+  }
+  
+  .box_login {
+    padding: 2rem;
+    margin: 0 1rem;
+  }
+  
+  .box_login .logo {
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 1rem;
+  }
+  
+  .titulo {
+    font-size: 1.75rem;
+  }
+  
+  .box_login {
+    padding: 1.5rem;
+  }
+  
+  .box_login input {
+    padding: 0.875rem;
+  }
+  
+  .box_login button {
+    padding: 0.875rem;
+    font-size: 1rem;
+  }
+}
+
+/* Estados de error y éxito */
+.box_login input.error {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+.box_login input.success {
+  border-color: #28a745;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+}
+
+/* Mensaje de error */
+.error-message {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* Loading state */
+.box_login button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.box_login button.loading {
+  position: relative;
+  color: transparent;
+}
+
+.box_login button.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
